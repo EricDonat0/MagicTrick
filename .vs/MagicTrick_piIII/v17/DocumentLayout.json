@@ -1,0 +1,184 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\MagicTrickServer.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MagicTrickServer.dll||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\Auxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Auxiliar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\Form1.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Form1.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmCriancaoPartida.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:telas\\frmCriancaoPartida.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmCriancaoPartida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:telas\\frmCriancaoPartida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmMenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:telas\\frmMenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmMenu.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:telas\\frmMenu.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmPartida.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:telas\\frmPartida.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmEntrarPartida.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:telas\\frmEntrarPartida.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MagicTrickServer.dll",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\MagicTrickServer.dll",
+              "RelativeDocumentMoniker": "MagicTrickServer.dll",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\MagicTrickServer.dll",
+              "RelativeToolTip": "MagicTrickServer.dll",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001697|",
+              "WhenOpened": "2024-03-28T15:06:25.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Auxiliar.cs",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\Auxiliar.cs",
+              "RelativeDocumentMoniker": "Auxiliar.cs",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\Auxiliar.cs",
+              "RelativeToolTip": "Auxiliar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T15:06:25.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T15:06:24.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T15:06:23.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmCriancaoPartida.resx",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmCriancaoPartida.resx",
+              "RelativeDocumentMoniker": "telas\\frmCriancaoPartida.resx",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmCriancaoPartida.resx",
+              "RelativeToolTip": "telas\\frmCriancaoPartida.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-03-28T15:06:19.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmMenu.cs",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmMenu.cs",
+              "RelativeDocumentMoniker": "telas\\frmMenu.cs",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmMenu.cs",
+              "RelativeToolTip": "telas\\frmMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T15:06:17.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmPartida.resx",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmPartida.resx",
+              "RelativeDocumentMoniker": "telas\\frmPartida.resx",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmPartida.resx",
+              "RelativeToolTip": "telas\\frmPartida.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-03-28T15:06:14.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmMenu.resx",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmMenu.resx",
+              "RelativeDocumentMoniker": "telas\\frmMenu.resx",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmMenu.resx",
+              "RelativeToolTip": "telas\\frmMenu.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-03-28T15:06:12.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmEntrarPartida.resx",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmEntrarPartida.resx",
+              "RelativeDocumentMoniker": "telas\\frmEntrarPartida.resx",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmEntrarPartida.resx",
+              "RelativeToolTip": "telas\\frmEntrarPartida.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-03-28T15:06:11.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmCriancaoPartida.cs",
+              "DocumentMoniker": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmCriancaoPartida.cs",
+              "RelativeDocumentMoniker": "telas\\frmCriancaoPartida.cs",
+              "ToolTip": "C:\\Users\\EricDonatoPulcinodos\\source\\repos\\MagicTrick_piIII\\MagicTrick_piIII\\telas\\frmCriancaoPartida.cs",
+              "RelativeToolTip": "telas\\frmCriancaoPartida.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T15:06:05.747Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

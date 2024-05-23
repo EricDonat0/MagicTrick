@@ -1,0 +1,17 @@
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\bin\Debug\MagicTrick_piIII.exe.config
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\bin\Debug\MagicTrick_piIII.exe
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\bin\Debug\MagicTrick_piIII.pdb
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\bin\Debug\MagicTrickServer.dll
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\bin\Debug\MagicTrickServer.xml
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.csproj.AssemblyReference.cache
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.Form1.resources
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.telas.frmCriancaoPartida.resources
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.telas.frmEntrarPartida.resources
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.frmMenu.resources
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.Properties.Resources.resources
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.telas.frmPartida.resources
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.csproj.GenerateResource.cache
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.csproj.CoreCompileInputs.cache
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTri.3158650E.Up2Date
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.exe
+C:\Users\EricDonatoPulcinodos\source\repos\MagicTrick_piIII\MagicTrick_piIII\obj\Debug\MagicTrick_piIII.pdb
