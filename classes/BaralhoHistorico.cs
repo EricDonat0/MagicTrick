@@ -44,6 +44,32 @@ namespace MagicTrick_piIII.classes
             return RetornarHistoricoJogadasTratado(result);
         }
 
+        public static BaralhoHistorico HandleHistoricoJogadas(Partida partida, int round)
+        {
+            BaralhoHistorico cartasHistoricoTmp = new BaralhoHistorico();
+
+            int idPartida = partida.IdPartida;
+
+            string result;
+
+            try
+            {
+                result = Jogo.ExibirJogadas2(idPartida, round);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return cartasHistoricoTmp;
+            }
+
+            if (Auxiliar.VerificarErro(result))
+                return cartasHistoricoTmp;
+
+            result = result.Replace("\r", "");
+
+            return RetornarHistoricoJogadasTratado(result);
+        }
+
         private static BaralhoHistorico RetornarHistoricoJogadasTratado(string consultaBruta)
         {
             BaralhoHistorico historicoJogadas = new BaralhoHistorico();
@@ -69,10 +95,10 @@ namespace MagicTrick_piIII.classes
                 valor = Convert.ToInt32(dados[3]);
                 posicao = Convert.ToInt32(dados[4]);
              
-                cartaTmp = new CartaHistorico(posicao, naipe, valor, rodada);               
+                cartaTmp = new CartaHistorico(posicao, naipe, valor, idJogador);               
 
-                if (historicoJogadas.Baralho.ContainsKey(idJogador))                                   
-                    historicoJogadas.Baralho[idJogador].Add(cartaTmp);
+                if (historicoJogadas.Baralho.ContainsKey(rodada))                                   
+                    historicoJogadas.Baralho[rodada].Add(cartaTmp);
                 
                 else
                 {
@@ -81,7 +107,7 @@ namespace MagicTrick_piIII.classes
                         cartaTmp 
                     };
 
-                    historicoJogadas.Baralho.Add(idJogador, listaTmp);
+                    historicoJogadas.Baralho.Add(rodada, listaTmp);
                 }                                
             }
             return historicoJogadas;
