@@ -1,5 +1,6 @@
 ﻿using MagicTrick_piIII.classes;
 using MagicTrick_piIII.Interfaces;
+using MagicTrick_piIII.Telas;
 using MagicTrickServer;
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,11 @@ namespace MagicTrick_piIII.telas
         Automato Automato;
         bool CartasImpressas = false;
 
-        static int[,] posicoesNomes = { { 183, 183 }, { 404, 227 }, { 922, 183 }, { 404, 454 } };
-        
+        frmNarrador Narrador;
+        frmStatus StatusForm;
+
+        static int[,] posicoesNomes = { { 183, 183 }, { 419, 227 }, { 922, 183 }, { 419, 454 } };
+       
         public frmPartida(Partida partida, List<Jogador> adversarios, Jogador player)
         {
             InitializeComponent();
@@ -32,15 +36,25 @@ namespace MagicTrick_piIII.telas
             this.Jogadores.Add(player);
             this.Player = player;
 
-            this.Automato = new Automato(this.Player, this.Jogadores);
+            this.StatusForm = new frmStatus();
+            this.Automato = new Automato(this.Player, this.Jogadores, this.StatusForm);
 
             AtualizarListaDeJogadores();
                                
             lblVersao.Text += Jogo.Versao;
+
+            
+            this.Narrador.Show();
+            this.Narrador.NarrarPartidaNaoIniciada();
+
+            this.StatusForm.Show();
         }
 
         private void AtualizarListaDeJogadores()
         {
+            if(this.Narrador == null)
+                this.Narrador = new frmNarrador();
+
             int idPartida = this.Partida.IdPartida;
             int idJogador = this.Player.IdJogador;
 
@@ -54,10 +68,12 @@ namespace MagicTrick_piIII.telas
                 this.Jogadores = jogadoresTmp;
                 int indexJogador = this.Jogadores.FindIndex(j => j.IdJogador == idJogador);
                 this.Jogadores[indexJogador] = this.Player;
-            }                   
+            }
+
+            this.Narrador.AtualizarJogadores(jogadoresTmp);
         }
 
-        private void ExibirNomes()
+        private void ExibirLabels()
         {
             int posicao;
 
@@ -67,6 +83,7 @@ namespace MagicTrick_piIII.telas
 
             foreach (Jogador jogador in this.Jogadores)
             {
+                posicao = (int)jogador.Posicao;
                 lblNome = new Label();
                 lblNome.Text = jogador.Nome;
                 lblNome.Font = fonteLabel;
@@ -74,10 +91,7 @@ namespace MagicTrick_piIII.telas
                 lblNome.BackColor = Color.FromArgb(19, 23, 31);
                 lblNome.Visible = true;
 
-                posicao = (int)jogador.Posicao;
-
                 ponto = new Point(posicoesNomes[posicao, 0], posicoesNomes[posicao, 1]);
-
                 lblNome.Location = ponto;
 
                 this.Controls.Add(lblNome);
@@ -112,7 +126,7 @@ namespace MagicTrick_piIII.telas
                 this.Partida.Round++;
 
                 Jogador.AdicionarUltimoPontoDoRound(this.Jogadores, this.Partida);
-                Jogador.AtualizarPlacares(this.Jogadores);
+                Jogador.AtualizarPlacares(this.Jogadores, this.Narrador);
             }
 
             this.Partida.Rodada = rodadaAtual;
@@ -144,13 +158,16 @@ namespace MagicTrick_piIII.telas
             if (this.Partida.Round == 1)
             {
                 Jogador.PreencherDeck(this.Jogadores, cartas, controle);
-                this.Automato.InicializarDecks(ref this.Jogadores);
+                this.Automato.InicializarPropriedades(ref this.Jogadores);
+                this.Narrador.NarrarComecoDePartida();
             }
 
             else
             {
                 Jogador.AtualizarDeck(this.Jogadores, cartas);
-                this.Automato.ReiniciarDecks(ref this.Jogadores);
+                this.Automato.ReiniciarPropriedades(ref this.Jogadores);
+                this.Narrador.NarrarNovoRound(this.Partida.Round);
+                this.StatusForm.LimparStatus();
             }
 
             return true;
@@ -184,10 +201,18 @@ namespace MagicTrick_piIII.telas
                 return false;
             }
 
+            this.StatusForm.AtualizarNaipeRodada(verificacao.NaipeRodada);
+
+            CartaVerificacao cartaCampea = BaralhoVerificacao.RetornarCartaCampea(verificacao.CartasRodada);
+
+            this.StatusForm.AtualizarCartaCampea(cartaCampea);
+
             if (this.Partida.Rodada != verificacao.RodadaAtual)
             {
                 Jogador.EsconderCartasJogadas(this.Jogadores);
                 flagNovaRodada = true;
+
+                this.Narrador.NarrarNovaRodada(verificacao.RodadaAtual);
             }
 
             AtualizarStatus(verificacao);
@@ -198,7 +223,7 @@ namespace MagicTrick_piIII.telas
                 {                    
                     AtualizarListaDeJogadores();
                     Jogador.OrganizarJogadores(ref this.Jogadores, idJogador, this.Controls);
-                    this.ExibirNomes();
+                    this.ExibirLabels();
                 }
 
                 if (!ConsultarMao())
@@ -208,15 +233,14 @@ namespace MagicTrick_piIII.telas
                 flagNovaRodada = false;                
             }
 
-            Jogador.AtualizarJogadas(this.Jogadores, verificacao, this.Automato, this.Controls);
+            Jogador.AtualizarJogadas(this.Jogadores, verificacao, this.Automato, this.Controls, this.Narrador);
 
             if (flagNovaRodada)
-                Jogador.VerificarHistorico(this.Jogadores, this.Partida, this.Automato, this.Controls);
+                Jogador.VerificarHistorico(this.Jogadores, this.Partida, this.Automato, this.Controls, this.Narrador);
             
             this.Partida.NaipeRodada = verificacao.NaipeRodada;
 
             this.Automato.LimitarCartas(cartasRodada);
-
             
             if (verificacao.IdJogador == this.Player.IdJogador)
                 return true;
@@ -310,13 +334,12 @@ namespace MagicTrick_piIII.telas
         private void ExibirPlacarFinal(char statusPartida)
         {
             int idPartida = this.Partida.IdPartida;
-            frmPlacarFinal placarFinal = new frmPlacarFinal(idPartida, statusPartida);
+            frmPlacarFinal placarFinal = new frmPlacarFinal(idPartida, statusPartida, this, this.Narrador, this.StatusForm);
+
+            this.Narrador.NarrarFimDeJogo();
 
             tmrAtualizarEstado.Stop();
-
-            placarFinal.ShowDialog();
-
-            this.Close();
+            placarFinal.Show();
         }
 
         private void tmrAtualizarEstado_Tick(object sender, EventArgs e)
