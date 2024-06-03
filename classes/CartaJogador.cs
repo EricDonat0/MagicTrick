@@ -1,6 +1,7 @@
 ﻿using MagicTrick_piIII.Enums;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,8 @@ namespace MagicTrick_piIII.classes
 
             this.PossiveisValores.AddRange(valores.ToList());
 
+            this.ValorReal = -1;
+
             this.Naipe = naipe;
 
             this.Disponivel = true;
@@ -45,7 +48,9 @@ namespace MagicTrick_piIII.classes
 
         public void TornarIndisponivel(int numeroCarta)
         {
-            this.ImagemCarta.ExibirLabelValor(numeroCarta);
+            char naipe = this.Naipe;
+
+            this.ImagemCarta.AtualizarCartaIndisponivel(naipe, numeroCarta);
 
             if (!this.Disponivel)
                 return;
@@ -57,12 +62,13 @@ namespace MagicTrick_piIII.classes
             this.PossiveisValores.Add(numeroCarta);
         }
 
-        public void AtualizarCarta(char naipe, int numeroCarta, Orientacao orientacao)
+        public void AtualizarCarta(char naipe, int numeroCarta)
         {
             this.Naipe = naipe;
+            this.ValorReal = numeroCarta;
 
             this.TornarIndisponivel(numeroCarta);
-            this.ImagemCarta.AtualizarImagemCarta(naipe, orientacao);
+            this.ImagemCarta.AtualizarImagemCarta(naipe);            
         }
 
         public static void LimitarDeckJogador(List<CartaJogador> deck, int posicao, int valorCarta)
@@ -108,8 +114,9 @@ namespace MagicTrick_piIII.classes
    
         public void AtualizarCartaDescoberta()
         {
+            char naipe = this.Naipe;
             this.ValorReal = this.PossiveisValores[0];
-            this.ImagemCarta.ExibirValorDescoberto(this.ValorReal);
+            this.ImagemCarta.ExibirValorDescoberto(naipe, this.ValorReal);
         }
 
         public bool ContemValorSuperior(int valor)

@@ -1,6 +1,7 @@
 ﻿using MagicTrick_piIII.classes;
 using MagicTrick_piIII.Enums;
 using MagicTrick_piIII.Interfaces;
+using MagicTrick_piIII.Telas;
 using MagicTrickServer;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,11 @@ namespace MagicTrick_piIII
         public Orientacao Orientacao { get; set; }  
         public Posicao Posicao { get; set; }
         public Label lblPontuacao { get; set; }
+        public Label lblQtdNaipes { get; set; }
 
-        static int[,] PosicoesPontuacao = { { 183, 493 }, { 732, 227 }, { 980, 493 }, { 732, 457 } };
+        static int[,] PosicoesPontuacao = { { 183, 478 }, { 732, 227 }, { 980, 478 }, { 732, 457 } };
+        
+        static int[,] posicoesNaipesVitorias = { { 99, 104 }, { 828, 140 }, { 1068, 575 }, { 344, 540 } };
 
         public Jogador(string linha)
         {
@@ -95,7 +99,7 @@ namespace MagicTrick_piIII
             return jogadoresTmp;
         }
 
-        private void InstanciarLabel(Control.ControlCollection controle)
+        private void InstanciarLabels(Control.ControlCollection controle)
         {
             int posicao = (int)this.Posicao;
 
@@ -110,13 +114,27 @@ namespace MagicTrick_piIII
             this.lblPontuacao.Text = this.Pontuacao.ToString();
             controle.Add(this.lblPontuacao);
 
+            ponto = new Point(posicoesNaipesVitorias[posicao, 0], posicoesNaipesVitorias[posicao, 1]);
+
+            this.lblQtdNaipes = new Label();
+            this.lblQtdNaipes.Font = Auxiliar.fontePrincipal;
+            this.lblQtdNaipes.Location = ponto;
+            this.lblQtdNaipes.ForeColor = Color.White;
+            this.lblQtdNaipes.BackColor = Color.FromArgb(19, 23, 31);
+
+            this.lblQtdNaipes.Width = 25;
+
+            this.lblQtdNaipes.Text = this.NaipesDePontosDaRodada.Count.ToString();
+            controle.Add(this.lblQtdNaipes);
+
             this.lblPontuacao.BringToFront();
+            this.lblQtdNaipes.BringToFront();
         }
 
         private static void InstanciarLabels(List<Jogador> jogadores, Control.ControlCollection controle)
         {
             foreach (Jogador jogador in jogadores)
-                jogador.InstanciarLabel(controle);
+                jogador.InstanciarLabels(controle);
         }
 
         public static void OrganizarJogadores(ref List<Jogador> jogadores, int idPlayer, Control.ControlCollection controle)
@@ -208,6 +226,7 @@ namespace MagicTrick_piIII
                 
                 jogadores[i].PontosRodada.Clear();
                 jogadores[i].NaipesDePontosDaRodada.Clear();
+                jogadores[i].AtualizarLblNaipesVitorias();
 
                 foreach (char chave in jogadores[i].CartasDisponiveisPorNaipe.Keys.ToList())
                     jogadores[i].CartasDisponiveisPorNaipe[chave] = 0;
@@ -247,8 +266,8 @@ namespace MagicTrick_piIII
                 jogadores[i].CartaJogada.ImagemCarta.TornarInvisivel();
             }
         }
-
-        public static void AtualizarJogadas(List<Jogador> jogadores, DadosVerificacao dados, Automato automato, Control.ControlCollection controle)
+        
+        public static void AtualizarJogadas(List<Jogador> jogadores, DadosVerificacao dados, Automato automato, Control.ControlCollection controle, frmNarrador narrador)
         {
             int valorCarta, posicao, indexCarta;
             char naipe, statusCarta;
@@ -272,10 +291,10 @@ namespace MagicTrick_piIII
                     statusCarta = cartasTmp[i].Status;
 
                     if (statusCarta == 'C')
-                        jogadorAtual.CartaJogada.AtualizarCarta(naipe, valorCarta, orientacao);
+                        jogadorAtual.CartaJogada.AtualizarCarta(naipe, valorCarta);
 
                     else
-                        jogadorAtual.CartaAposta.AtualizarCarta(naipe, valorCarta, orientacao);
+                        jogadorAtual.CartaAposta.AtualizarCarta(naipe, valorCarta);
 
                     indexCarta = jogadorAtual.Deck.FindIndex(c => c.Posicao == posicao);
 
@@ -285,6 +304,13 @@ namespace MagicTrick_piIII
                         {
                             jogadorAtual.Deck[indexCarta].TornarIndisponivel(valorCarta);
                             jogadorAtual.CartasDisponiveisPorNaipe[naipe]--;
+                            automato.RemoverValorPossivel(valorCarta, naipe);
+
+                            if (statusCarta == 'C')
+                                narrador.NarrarCartaJogada(jogadorAtual, cartasTmp[i]);
+
+                            else
+                                narrador.NarrarCartaApostada(jogadorAtual, cartasTmp[i]);
                         }                    
                     }                   
 
@@ -301,6 +327,12 @@ namespace MagicTrick_piIII
                         novaCarta.TornarIndisponivel(valorCarta);
 
                         automato.InserirCarta(ref novaCarta);
+
+                        if (statusCarta == 'C')
+                            narrador.NarrarCartaJogada(jogadorAtual, novaCarta);
+
+                        else
+                            narrador.NarrarCartaApostada(jogadorAtual, novaCarta);
                     }
 
                     CartaJogador.LimitarDeckJogador(jogadorAtual.Deck, posicao, valorCarta);
@@ -308,7 +340,7 @@ namespace MagicTrick_piIII
             }         
         }
 
-        public static void VerificarHistorico(List<Jogador> jogadores, Partida partida, Automato automato, Control.ControlCollection controle)
+        public static void VerificarHistorico(List<Jogador> jogadores, Partida partida, Automato automato, Control.ControlCollection controle, frmNarrador narrador)
         {
             BaralhoHistorico historicoJogadas = BaralhoHistorico.HandleHistoricoJogadas(partida);
 
@@ -337,6 +369,9 @@ namespace MagicTrick_piIII
                     jogadorAtual.Deck[posicao - 1].TornarIndisponivel(valor);
                     CartaJogador.LimitarDeckJogador(jogadorAtual.Deck, posicao, valor);
                     automato.AtualizarDecks(valor, naipe);
+                    automato.RemoverValorPossivel(valor, naipe);
+
+                    narrador.NarrarCartaJogada(jogadorAtual, carta);
                 }
             }
             
@@ -349,7 +384,7 @@ namespace MagicTrick_piIII
         public static void AdicionarUltimoPontoDoRound(List<Jogador> jogadores, Partida partida)
         {
             int round = partida.Round - 1;
-            int rodadaFinal = 9 + jogadores.Count;
+            int rodadaFinal = 10 + jogadores.Count;
 
             BaralhoHistorico historicoJogadas = BaralhoHistorico.HandleHistoricoJogadas(partida, round);
 
@@ -358,6 +393,13 @@ namespace MagicTrick_piIII
             Jogador jogadorTmp = jogadores.Find(j => j.IdJogador == ponto.IdJogador);
 
             Ponto.AtribuirUltimoPontoDoRound(jogadorTmp, ponto);
+        }
+
+        public void AtualizarLblNaipesVitorias()
+        {
+            int qtdNaipes = this.NaipesDePontosDaRodada.Count;
+            this.lblQtdNaipes.ResetText();
+            this.lblQtdNaipes.Text = qtdNaipes.ToString();
         }
 
         private void AtualizarLblPontuacao()
@@ -373,32 +415,70 @@ namespace MagicTrick_piIII
             Após isso, verifico se a minha aposta é igual ao número de naipes das rodadas que ganhei, 
             caso seja, adiciono dois pontos ao placar.
          */
-        private void AtualizarPontuacao()
+        private void AtualizarPontuacao(frmNarrador narrador)
         {
             int pontosRound = 0;
             int aposta = this.CartaAposta.ValorReal;
 
             int diferenca = aposta - this.PontosRodada.Count;
 
+            narrador.NarrarPontuacaoCalculada(this.IdJogador, diferenca);
+
             if (diferenca == 0)
+            {
                 pontosRound = 3;
+               
+                if (aposta == this.NaipesDePontosDaRodada.Count)
+                {
+                    pontosRound += 2;
+                    narrador.NarrarPrestigioGanho(this.IdJogador);
+                }
+            }
 
             else
-                pontosRound += diferenca * (diferenca > 0 ? -1 : 1);
-
-            if (aposta == this.NaipesDePontosDaRodada.Count)
-                pontosRound += 2;
+                pontosRound = diferenca * (diferenca > 0 ? -1 : 1);         
 
             this.Pontuacao += pontosRound;
         }
 
-        public static void AtualizarPlacares(List<Jogador> jogadores)
+        public static void AtualizarPlacares(List<Jogador> jogadores, frmNarrador narrador)
         {
             foreach (Jogador jogador in jogadores)
             {
-                jogador.AtualizarPontuacao();
+                jogador.AtualizarPontuacao(narrador);
+                jogador.AtualizarLblNaipesVitorias();
                 jogador.AtualizarLblPontuacao();
             }
+
+            foreach (Jogador jogador in jogadores)
+                narrador.NarrarNovaPontuacao(jogador);
+
+            narrador.AtualizarJogadores(jogadores);
+        }
+        
+        public static List<char> RetornarNaipesEmComum(List<Jogador> jogadores, Jogador jogador)
+        {
+            Dictionary<char, int> naipesEmComumDictionary = new Dictionary<char, int>();
+            
+            foreach(KeyValuePair<char, int> chaveValor in jogador.CartasDisponiveisPorNaipe)            
+                if (jogador.CartasDisponiveisPorNaipe[chaveValor.Key] > 0)
+                    naipesEmComumDictionary.Add(chaveValor.Key, 0);
+           
+            foreach(Jogador jogadorTmp in jogadores)
+            {
+                if (jogadorTmp.IdJogador == jogador.IdJogador) continue;
+               
+                foreach(char naipe in jogadorTmp.CartasDisponiveisPorNaipe.Keys)                
+                    if (naipesEmComumDictionary.ContainsKey(naipe) && jogadorTmp.CartasDisponiveisPorNaipe[naipe] > 0)
+                        naipesEmComumDictionary[naipe]++;
+            }
+
+            List<char> naipesEmComum = new List<char>();
+
+            foreach (KeyValuePair<char, int> chaveValor in naipesEmComumDictionary.OrderBy(c => c.Value))
+                naipesEmComum.Add(chaveValor.Key);
+
+            return naipesEmComum;
         }
     }
 }
