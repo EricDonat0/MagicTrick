@@ -78,6 +78,7 @@ namespace MagicTrick_piIII
             dgvPartidas.Columns.Remove("Senha");
             dgvPartidas.Columns.Remove("NaipeRodada");
             dgvPartidas.Columns.Remove("StatusRodada");
+            dgvPartidas.Columns.Remove("DadosRodada");
         }
 
         private void dgvPartidas_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -94,12 +95,15 @@ namespace MagicTrick_piIII
             List<Jogador> jogadoresTmp = Jogador.RetornarJogadoresPartida(idPartida);
             dgvJogadores.DataSource = jogadoresTmp;
             this.JogadoresPartidaSelecionada = jogadoresTmp;
-           
-            dgvJogadores.Columns.Remove("Posicao");
-            dgvJogadores.Columns.Remove("Senha");
-            dgvJogadores.Columns.Remove("CartaJogada");
-            dgvJogadores.Columns.Remove("CartaAposta");
-            dgvJogadores.Columns.Remove("Orientacao");
+
+            dgvJogadores.Columns[3].Visible = false;
+            dgvJogadores.Columns[4].Visible = false;
+            dgvJogadores.Columns[5].Visible = false;
+            dgvJogadores.Columns[6].Visible = false;
+            dgvJogadores.Columns[7].Visible = false;
+            dgvJogadores.Columns[8].Visible = false;
+            dgvJogadores.Columns[9].Visible = false;
+            dgvJogadores.Columns[10].Visible = false;
         }
 
         private void btnCriar_Click(object sender, EventArgs e)
